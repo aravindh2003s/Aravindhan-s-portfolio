@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aravindhan S | Admin Portal</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .admin-body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 450px;
+            padding: 3rem;
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .dashboard {
+            display: none;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+
+        .dashboard.active {
+            display: block;
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .logout-btn {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .logout-btn:hover {
+            background: rgba(239, 68, 68, 0.2);
+        }
+
+        .messages-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .message-card {
+            padding: 1.5rem;
+            border-left: 4px solid var(--text-accent);
+        }
+
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .message-content {
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .no-messages {
+            text-align: center;
+            padding: 4rem;
+            color: var(--text-secondary);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="spatial-theme admin-body">
+
+    <!-- Ambient Glowing Orbs Background (Reused) -->
+    <div class="ambient-background">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Animated Canvas Cursor Glow -->
+    <canvas id="canvas"></canvas>
+
+    <!-- Login Section -->
+    <div id="loginSection" class="glass-panel login-box">
+        <div class="form-header text-center">
+            <h2 style="font-family: var(--font-heading); margin-bottom: 0.5rem;">Secure Access</h2>
+            <p class="section-subtitle">Admin Portal</p>
+        </div>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Administrator ID</label>
+                <input type="text" id="username" name="username" required autocomplete="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Passphrase</label>
+                <input type="password" id="password" name="password" required autocomplete="current-password">
+            </div>
+            <button type="submit" class="btn btn-primary glass-btn-primary btn-full"
+                style="width: 100%; margin-top: 1rem;">
+                Authenticate <i class="fas fa-lock"></i>
+            </button>
+            <div id="loginMessage" class="form-message"></div>
+        </form>
+        <div class="text-center" style="margin-top: 2rem;">
+            <a href="index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Return to Main Site</a>
+        </div>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div id="dashboardSection" class="dashboard">
+        <div class="dashboard-header">
+            <div>
+                <h1 style="font-family: var(--font-heading); margin-bottom: 0.5rem;">Command Center</h1>
+                <p class="section-subtitle">Viewing incoming transmissions</p>
+            </div>
+            <button id="logoutBtn" class="btn btn-secondary glass-btn-secondary logout-btn small-btn">
+                Log Out <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+
+        <div class="glass-panel" style="padding: 2rem;">
+            <div id="messagesGrid" class="messages-grid">
+                <!-- Messages will be injected here by JS -->
+                <div class="no-messages">
+                    <i class="fas fa-circle-notch fa-spin fa-2x"></i>
+                    <p style="margin-top: 1rem;">Decrypting messages...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./js/config.js"></script>
+    <script src="./js/canvas-cursor.js"></script>
+    <script src="./js/admin.js"></script>
+</body>
+
+</html>

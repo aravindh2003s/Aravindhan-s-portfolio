@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Aravindhan S - Aspiring Software Engineer building immersive digital experiences and high-performance applications.">
+    <meta name="theme-color" content="#030305">
+
+    <!-- Open Graph / SEO Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aravindhans.dev/">
+    <meta property="og:title" content="Aravindhan S | Software Engineer">
+    <meta property="og:description"
+        content="Aravindhan S - Aspiring Software Engineer building immersive digital experiences and high-performance applications.">
+    <meta property="og:image" content="https://aravindhans.dev/og-image.jpg">
+
+    <title>Aravindhan S | Software Engineer</title>
+
+    <!-- Google Fonts: Inter and Geist -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Geist:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<!-- Scroll Progress Bar -->
+<div id="scrollProgress" class="scroll-progress-bar"></div>
+
+<body class="spatial-theme">
+    <!-- Cinematic Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">Aravindhan<span class="text-accent">S</span></div>
+            <div class="preloader-bar">
+                <div class="preloader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Canvas Cursor -->
+    <canvas id="canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar glass-panel-nav">
+        <div class="nav-container">
+            <a href="#home" class="logo">Aravindhan<span class="text-accent">S</span></a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#skills" class="nav-link">Expertise</a></li>
+                <li><a href="#projects" class="nav-link">Selected Works</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme"
+                    title="Toggle Light/Dark Mode">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge fade-in-up" id="heroBadge">
+                    <span class="pulse-dot"></span> Available for Opportunities &nbsp;|&nbsp; <span
+                        id="liveIST">IST</span>
+                </div>
+                <h1 class="hero-title fade-in-up" style="animation-delay: 0.1s;">
+                    Hi, I'm Aravindhan. <br>
+                    <span class="bg-clip-text" id="typewriterText">Software Engineer.</span>
+                </h1>
+                <p class="hero-subtitle fade-in-up" style="animation-delay: 0.2s;">
+                    Aspiring Software Developer with hands-on experience in full-stack development and automation
+                    testing. Skilled in building efficient, scalable applications using modern frameworks like React,
+                    FastAPI, and TypeScript.
+                </p>
+                <div class="hero-actions fade-in-up" style="animation-delay: 0.3s;">
+                    <a href="#projects" class="btn btn-primary glass-btn-primary magnetic-btn">View Projects <i
+                            class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn btn-secondary glass-btn-secondary magnetic-btn">Let's Talk</a>
+                    <a href="./images/ARAVINDHAN-Resume.pdf" download="ARAVINDHAN-Resume.pdf"
+                        class="btn btn-download glass-btn-download magnetic-btn">
+                        <i class="fas fa-download"></i> Resume
+                    </a>
+                </div>
+            </div>
+
+            <!-- CLI Terminal Widget -->
+            <div class="terminal-widget glass-panel fade-in-up" style="animation-delay:0.4s;" id="cliTerminal">
+                <div class="terminal-bar">
+                    <span class="t-dot" style="background:#ff5f57"></span>
+                    <span class="t-dot" style="background:#febc2e"></span>
+                    <span class="t-dot" style="background:#28c840"></span>
+                    <span class="t-label">aravindhan@portfolio ~ </span>
+                </div>
+                <div class="terminal-output" id="terminalOutput">
+                    <p class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">help</span></p>
+                    <p class="t-response">Available commands: <span class="t-hl">about</span>, <span
+                            class="t-hl">skills</span>, <span class="t-hl">contact</span>, <span
+                            class="t-hl">resume</span>, <span class="t-hl">projects</span>, <span
+                            class="t-hl">clear</span>, <span class="t-hl">hello</span></p>
+                </div>
+                <div class="terminal-input-row">
+                    <span class="t-prompt">$</span>
+                    <input id="terminalInput" class="t-input" type="text" placeholder="type a command..."
+                        autocomplete="off" spellcheck="false" />
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator fade-in-slow">
+            <div class="mouse-icon">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-panel-main glass-panel fade-in-up">
+                <h2 class="section-title text-left">Professional Summary</h2>
+                <p class="about-text">
+                    I am an aspiring <strong>Full Stack Developer</strong> with hands-on experience in full-stack
+                    development and automation testing. Passionate about solving real-world problems with clean code
+                    and strong fundamentals in Data Structures and Algorithms. I build efficient, scalable
+                    applications using modern frameworks like React, FastAPI, and TypeScript.
+                </p>
+                <p class="about-text">
+                    I focus on clean architecture, test-driven development, and CI/CD practices to deliver
+                    production-ready software solutions.
+                </p>
+            </div>
+            <div class="about-panel-side glass-panel fade-in-up" style="animation-delay: 0.1s;">
+                <h3 style="margin-bottom: 0.5rem;">🎯 What I Bring to a Team</h3>
+                <ul class="work-tech-list-simple">
+                    <li><i class="fas fa-check text-accent"></i> Full-stack development skills</li>
+                    <li><i class="fas fa-check text-accent"></i> Automation &amp; testing expertise</li>
+                    <li><i class="fas fa-check text-accent"></i> Agile &amp; Scrum mindset</li>
+                    <li><i class="fas fa-check text-accent"></i> CI/CD pipeline experience</li>
+                    <li><i class="fas fa-check text-accent"></i> Clean &amp; maintainable code</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Counter Row -->
+    <section class="stats-row" aria-label="Key achievements">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in-up">
+                    <span class="stat-number" data-target="4">0</span>
+                    <span class="stat-suffix">+</span>
+                    <p class="stat-label">Projects Built</p>
+                </div>
+                <div class="stat-item fade-in-up" style="animation-delay:0.1s">
+                    <span class="stat-number" data-target="40">0</span>
+                    <span class="stat-suffix">%</span>
+                    <p class="stat-label">Manual Testing Reduced</p>
+                </div>
+                <div class="stat-item fade-in-up" style="animation-delay:0.2s">
+                    <span class="stat-number" data-target="10">0</span>
+                    <span class="stat-suffix">+</span>
+                    <p class="stat-label">Technologies</p>
+                </div>
+                <div class="stat-item fade-in-up" style="animation-delay:0.3s">
+                    <span class="stat-number" data-target="4">0</span>
+                    <span class="stat-suffix">mo</span>
+                    <p class="stat-label">Internship Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up">Work Experience</h2>
+
+            <div class="work-showcase glass-panel fade-in-up tilt-card">
+                <div class="work-content">
+                    <h3 class="work-title">Automation Tester @ Larsen &amp; Toubro</h3>
+                    <span class="work-category">Feb 2025 – May 2025 (Internship) &nbsp;|&nbsp; Chennai</span>
+                    <p class="work-desc" style="color: var(--text-secondary); margin-bottom: 1rem;">
+                        Built automation testing frameworks for internal corporate systems, improving test coverage
+                        and integrating CI/CD workflows to reduce manual testing effort by 40%.
+                    </p>
+                    <ul class="modal-list" style="margin-bottom:0">
+                        <li>Developed automated test scripts using TypeScript, Playwright, and Selenium, increasing test
+                            coverage for core modules.</li>
+                        <li>Built reusable automation frameworks with Cucumber BDD, enhancing test maintainability and
+                            integrating testing into Agile workflows.</li>
+                        <li>Contributed to CI/CD pipelines, reducing manual testing time by 40%.</li>
+                    </ul>
+                </div>
+                <div class="work-tools">
+                    <h4 style="margin-bottom: 1rem; color: var(--text-primary);">Tools &amp; Tech</h4>
+                    <div class="tech-tags">
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Playwright</span>
+                        <span class="tag">Selenium</span>
+                        <span class="tag">Cucumber BDD</span>
+                        <span class="tag">CI/CD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up">Education</h2>
+            <div class="education-timeline">
+
+                <!-- Degree -->
+                <div class="edu-card glass-panel fade-in-up tilt-card">
+                    <div class="edu-icon-wrap">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="edu-body">
+                        <div class="edu-meta">
+                            <span class="edu-year">2021 – 2025</span>
+                            <span class="edu-location"><i class="fas fa-map-marker-alt"></i> Puducherry, India</span>
+                        </div>
+                        <h3 class="edu-degree">Bachelor of Technology — Computer Science &amp; Engineering</h3>
+                        <p class="edu-institution">Sri Venkateshwaraa College of Engineering and Technology</p>
+                        <div class="tech-tags" style="margin-top:1rem;">
+                            <span class="tag">B.Tech CSE</span>
+                            <span class="tag">Full Stack</span>
+                            <span class="tag">Automation Testing</span>
+                            <span class="tag">DSA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Class XII -->
+                <div class="edu-card glass-panel fade-in-up tilt-card" style="animation-delay:0.1s;">
+                    <div class="edu-icon-wrap">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="edu-body">
+                        <div class="edu-meta">
+                            <span class="edu-year">2020 – 2021</span>
+                            <span class="edu-location"><i class="fas fa-map-marker-alt"></i> Puducherry, India</span>
+                        </div>
+                        <h3 class="edu-degree">Class XII — Senior Secondary</h3>
+                        <p class="edu-institution">Jawahar Higher Secondary School</p>
+                    </div>
+                </div>
+
+                <!-- Class XI -->
+                <div class="edu-card glass-panel fade-in-up tilt-card" style="animation-delay:0.2s;">
+                    <div class="edu-icon-wrap">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="edu-body">
+                        <div class="edu-meta">
+                            <span class="edu-year">2018 – 2019</span>
+                            <span class="edu-location"><i class="fas fa-map-marker-alt"></i> Puducherry, India</span>
+                        </div>
+                        <h3 class="edu-degree">Class XI — Secondary School</h3>
+                        <p class="edu-institution">Jawahar Higher Secondary School</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <h2 class="section-title">Technical Expertise</h2>
+            </div>
+
+            <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));gap: 2rem;">
+                <!-- Languages -->
+                <div class="skill-card glass-panel fade-in-up tilt-card">
+                    <div class="skill-icon-wrap"><i class="fas fa-code"></i></div>
+                    <h3>Programming Languages</h3>
+                    <div class="tech-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </div>
+
+                <!-- Frontend -->
+                <div class="skill-card glass-panel fade-in-up tilt-card" style="animation-delay: 0.1s">
+                    <div class="skill-icon-wrap"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Frontend Development</h3>
+                    <div class="tech-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">Responsive UI</span>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="skill-card glass-panel fade-in-up tilt-card" style="animation-delay: 0.2s">
+                    <div class="skill-icon-wrap"><i class="fas fa-server"></i></div>
+                    <h3>Backend Development</h3>
+                    <div class="tech-tags">
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag">REST APIs</span>
+                        <span class="tag">JWT Auth</span>
+                    </div>
+                </div>
+
+                <!-- Database -->
+                <div class="skill-card glass-panel fade-in-up tilt-card">
+                    <div class="skill-icon-wrap"><i class="fas fa-database"></i></div>
+                    <h3>Database</h3>
+                    <div class="tech-tags">
+                        <span class="tag">MySQL</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Schema Design</span>
+                    </div>
+                </div>
+
+                <!-- Testing -->
+                <div class="skill-card glass-panel fade-in-up tilt-card" style="animation-delay: 0.1s">
+                    <div class="skill-icon-wrap"><i class="fas fa-vial"></i></div>
+                    <h3>Testing &amp; Automation</h3>
+                    <div class="tech-tags">
+                        <span class="tag">Playwright</span>
+                        <span class="tag">Selenium</span>
+                        <span class="tag">Cucumber BDD</span>
+                        <span class="tag">Automation Testing</span>
+                    </div>
+                </div>
+
+                <!-- Tools & Methodologies -->
+                <div class="skill-card glass-panel fade-in-up tilt-card" style="animation-delay: 0.2s">
+                    <div class="skill-icon-wrap"><i class="fas fa-tools"></i></div>
+                    <h3>Tools &amp; Methodologies</h3>
+                    <div class="tech-tags">
+                        <span class="tag">CI/CD Pipelines</span>
+                        <span class="tag">Git/GitHub</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Agile/Scrum</span>
+                        <span class="tag">SDLC</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recruiter FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <h2 class="section-title">For Recruiters</h2>
+                <p class="section-subtitle">Common questions — answered upfront.</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item glass-panel fade-in-up">
+                    <button class="faq-question">
+                        <span>Are you open to relocation?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes — open to relocating anywhere in India. Also comfortable with hybrid or remote roles.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-panel fade-in-up" style="animation-delay:0.05s">
+                    <button class="faq-question">
+                        <span>What is your notice period?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Immediately available — no notice period.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-panel fade-in-up" style="animation-delay:0.1s">
+                    <button class="faq-question">
+                        <span>Work mode preference?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Flexible — comfortable with on-site, hybrid, or fully remote work environments.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-panel fade-in-up" style="animation-delay:0.15s">
+                    <button class="faq-question">
+                        <span>Open to internship and full-time both?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes — open to full-time roles, contract positions, and internships.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-panel fade-in-up" style="animation-delay:0.2s">
+                    <button class="faq-question">
+                        <span>What roles are you targeting?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Full Stack Developer, Software Engineer, Backend Developer, Automation Test Engineer, or QA
+                            Engineer roles.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-panel fade-in-up" style="animation-delay:0.25s">
+                    <button class="faq-question">
+                        <span>Expected response time?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>I typically respond within <strong>2–4 hours</strong> on weekdays. Feel free to reach out via
+                            email or LinkedIn.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <h2 class="section-title">Selected Works</h2>
+                <p class="section-subtitle">Real-world applications built from the ground up.</p>
+            </div>
+
+            <div class="projects-grid">
+
+                <!-- Card 1 — Portfolio -->
+                <article class="project-card glass-panel fade-in-up tilt-card">
+                    <div class="project-card-accent" style="--accent-from:#38bdf8;--accent-to:#818cf8;"></div>
+                    <div class="project-card-inner">
+                        <div class="project-card-header">
+                            <span class="project-number">01</span>
+                            <span class="project-badge">Full Stack</span>
+                        </div>
+                        <h3 class="project-card-title">Full-Stack Portfolio<br>Website with Login</h3>
+                        <p class="project-card-desc">Secure portfolio with JWT auth, dynamic project display, contact
+                            form integration, and Docker deployment.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag">JWT Auth</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Docker</span>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://github.com/Aravind1001y" target="_blank"
+                                class="btn glass-btn-secondary small-btn project-card-btn project-github-btn"
+                                title="View on GitHub">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <button onclick="openModal('modal-3')"
+                                class="btn glass-btn-primary small-btn project-card-btn">
+                                View Details <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 — EMS -->
+                <article class="project-card glass-panel fade-in-up tilt-card" style="animation-delay:0.1s;">
+                    <div class="project-card-accent" style="--accent-from:#818cf8;--accent-to:#e879f9;"></div>
+                    <div class="project-card-inner">
+                        <div class="project-card-header">
+                            <span class="project-number">02</span>
+                            <span class="project-badge">Enterprise</span>
+                        </div>
+                        <h3 class="project-card-title">Full-Stack Employee<br>Management System</h3>
+                        <p class="project-card-desc">Web-based HR system for employee records, departments, salary
+                            tracking, and role-based admin access.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://github.com/Aravind1001y" target="_blank"
+                                class="btn glass-btn-secondary small-btn project-card-btn project-github-btn"
+                                title="View on GitHub">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <button onclick="openModal('modal-2')"
+                                class="btn glass-btn-primary small-btn project-card-btn">
+                                View Details <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 — Indoor Positioning -->
+                <article class="project-card glass-panel fade-in-up tilt-card" style="animation-delay:0.2s;">
+                    <div class="project-card-accent" style="--accent-from:#e879f9;--accent-to:#f59e0b;"></div>
+                    <div class="project-card-inner">
+                        <div class="project-card-header">
+                            <span class="project-number">03</span>
+                            <span class="project-badge">AI &amp; IoT</span>
+                        </div>
+                        <h3 class="project-card-title">Indoor Positioning<br>System, AI &amp; IoT</h3>
+                        <p class="project-card-desc">Real-time indoor object detection and tracking using ML algorithms
+                            and IoT sensors with a FastAPI backend.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">ML Algorithms</span>
+                            <span class="tag">IoT</span>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://github.com/Aravind1001y" target="_blank"
+                                class="btn glass-btn-secondary small-btn project-card-btn project-github-btn"
+                                title="View on GitHub">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <button onclick="openModal('modal-1')"
+                                class="btn glass-btn-primary small-btn project-card-btn">
+                                View Details <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 — E-Commerce -->
+                <article class="project-card glass-panel fade-in-up tilt-card" style="animation-delay:0.3s;">
+                    <div class="project-card-accent" style="--accent-from:#10b981;--accent-to:#38bdf8;"></div>
+                    <div class="project-card-inner">
+                        <div class="project-card-header">
+                            <span class="project-number">04</span>
+                            <span class="project-badge">E-Commerce</span>
+                        </div>
+                        <h3 class="project-card-title">E-Commerce<br>Full-Stack Website</h3>
+                        <p class="project-card-desc">Custom T-shirt printing shop — browse, customize, cart, and secure
+                            checkout with admin order management.</p>
+                        <div class="tech-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://github.com/Aravind1001y" target="_blank"
+                                class="btn glass-btn-secondary small-btn project-card-btn project-github-btn"
+                                title="View on GitHub">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <button onclick="openModal('modal-4')"
+                                class="btn glass-btn-primary small-btn project-card-btn">
+                                View Details <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info fade-in-up">
+                    <h2 class="section-title">Let's build something extraordinary.</h2>
+                    <p class="section-subtitle">Currently open for new opportunities. Whether you have a question or
+                        just want to say hi, I'll try my best to get back to you!</p>
+
+                    <div class="contact-methods">
+                        <a href="mailto:aravindh2003s@gmail.com" class="contact-method-card glass-panel tilt-card">
+                            <div class="icon-wrap"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h4>Email</h4>
+                                <span>aravindh2003s@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="tel:+918838544167" class="contact-method-card glass-panel tilt-card"
+                            style="animation-delay: 0.1s">
+                            <div class="icon-wrap"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <h4>Phone</h4>
+                                <span>+91 8838544167</span>
+                            </div>
+                        </a>
+                        <div class="contact-method-card glass-panel tilt-card" style="animation-delay: 0.2s">
+                            <div class="icon-wrap"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h4>Location</h4>
+                                <span>Chennai, India</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper fade-in-up" style="animation-delay: 0.2s">
+                    <form id="contactForm" class="glass-form glass-panel">
+                        <div class="form-header">
+                            <h3>Send a Message</h3>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required rows="4"
+                                placeholder="How can I help you?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary glass-btn-primary btn-full">
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content glass-panel-nav">
+            <div class="footer-logo">Aravindhan<span class="text-accent">S</span></div>
+            <div class="footer-copy">
+                © 2025 Aravindhan S. Engineered with passion.
+                <a href="admin.html" style="opacity: 0.3; margin-left:10px; font-size: 0.8em; transition: opacity 0.3s;"
+                    onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.3"><i
+                        class="fas fa-terminal"></i> System</a>
+            </div>
+            <div class="footer-socials">
+                <a href="https://github.com/Aravind1001y" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/aravindhan-s-372548c2a2" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modals -->
+    <div id="modal-1" class="modal-overlay">
+        <div class="glass-panel modal-content">
+            <button class="close-modal" onclick="closeModal('modal-1')"><i class="fas fa-times"></i></button>
+            <h2 class="section-title" style="font-size: 2rem; margin-bottom: 0.5rem;">Indoor Positioning System, AI
+                &amp; IoT Based</h2>
+            <div class="work-category" style="margin-bottom: 2rem;">Overview</div>
+            <p class="modal-text">An AI and IoT-based solution designed to detect and track indoor objects. Implemented
+                ML algorithms for enhanced tracking and navigation accuracy.</p>
+
+            <h4 class="modal-h4">Problem Statement</h4>
+            <p class="modal-text">Indoor environments lack reliable GPS-based positioning, making object tracking and
+                navigation difficult for automated systems and assistive applications.</p>
+
+            <h4 class="modal-h4">Solution</h4>
+            <p class="modal-text">Built a real-time indoor positioning system using AI and IoT sensors to accurately
+                detect and track objects within indoor spaces, leveraging ML algorithms for improved accuracy.</p>
+
+            <h4 class="modal-h4">Core Features</h4>
+            <ul class="modal-list">
+                <li>Real-time indoor object detection and tracking</li>
+                <li>ML algorithms for enhanced positioning accuracy</li>
+                <li>IoT sensor integration for data collection</li>
+                <li>Navigation assistance based on tracked position</li>
+                <li>FastAPI-based RESTful backend</li>
+            </ul>
+
+            <h4 class="modal-h4">Outcome &amp; Tech Stack</h4>
+            <p class="modal-text"><strong>Tech Stack:</strong> Python, FastAPI, ML Algorithms, IoT Sensors</p>
+            <p class="modal-text"><strong>Outcome:</strong> Improved indoor navigation and object tracking accuracy
+                using AI-driven positioning.</p>
+        </div>
+    </div>
+
+    <div id="modal-2" class="modal-overlay">
+        <div class="glass-panel modal-content">
+            <button class="close-modal" onclick="closeModal('modal-2')"><i class="fas fa-times"></i></button>
+            <h2 class="section-title" style="font-size: 2rem; margin-bottom: 0.5rem;">Full-Stack Employee Management
+                System</h2>
+            <div class="work-category" style="margin-bottom: 2rem;">Overview</div>
+            <p class="modal-text">A web-based enterprise application to manage employee records efficiently. The system
+                allows admin to add, update, delete, and view employee details including personal information,
+                department, salary, and attendance.</p>
+
+            <h4 class="modal-h4">Key Functionalities</h4>
+            <ul class="modal-list">
+                <li>Add, update, delete employee records</li>
+                <li>Role-based authentication and authorization</li>
+                <li>Department and salary management</li>
+                <li>Attendance tracking system</li>
+                <li>Search and filter employees</li>
+            </ul>
+
+            <h4 class="modal-h4">Architecture</h4>
+            <p class="modal-text">Backend built using Spring Boot with REST APIs. MySQL used for persistent storage.
+                Frontend built using HTML, CSS, and JavaScript.</p>
+
+            <h4 class="modal-h4">Outcome &amp; Tech Stack</h4>
+            <p class="modal-text"><strong>Tech Stack:</strong> Java Spring Boot, MySQL, HTML, CSS, JavaScript</p>
+            <p class="modal-text"><strong>Impact:</strong> Reduces manual record handling and improves organizational
+                workflow efficiency.</p>
+        </div>
+    </div>
+
+    <div id="modal-3" class="modal-overlay">
+        <div class="glass-panel modal-content">
+            <button class="close-modal" onclick="closeModal('modal-3')"><i class="fas fa-times"></i></button>
+            <h2 class="section-title" style="font-size: 2rem; margin-bottom: 0.5rem;">Full-Stack Portfolio Website with
+                Login</h2>
+            <div class="work-category" style="margin-bottom: 2rem;">Overview</div>
+            <p class="modal-text">A production-ready full-stack portfolio website with secure user login, dynamic
+                project display, and a contact form with email integration.</p>
+
+            <h4 class="modal-h4">Core Features</h4>
+            <ul class="modal-list">
+                <li>JWT-based authentication system</li>
+                <li>Secure login and admin access</li>
+                <li>Dynamic project display</li>
+                <li>Contact form with email integration</li>
+                <li>MySQL database integration</li>
+                <li>Docker containerization for scalable deployment</li>
+                <li>Clean, responsive UI</li>
+            </ul>
+
+            <h4 class="modal-h4">Security &amp; Deployment</h4>
+            <ul class="modal-list">
+                <li>Token-based authentication using JWT</li>
+                <li>Password encryption</li>
+                <li>Protected API endpoints &amp; Role-based access control</li>
+                <li>Dockerized for consistent environment setup and easy deployment</li>
+            </ul>
+
+            <h4 class="modal-h4">Outcome &amp; Tech Stack</h4>
+            <p class="modal-text"><strong>Tech Stack:</strong> Java Spring Boot, MySQL, JWT, Docker, HTML, CSS,
+                JavaScript</p>
+            <p class="modal-text"><strong>Outcome:</strong> Provides a secure, scalable, and professional digital
+                identity platform.</p>
+        </div>
+    </div>
+
+    <div id="modal-4" class="modal-overlay">
+        <div class="glass-panel modal-content">
+            <button class="close-modal" onclick="closeModal('modal-4')"><i class="fas fa-times"></i></button>
+            <h2 class="section-title" style="font-size: 2rem; margin-bottom: 0.5rem;">E-Commerce Full-Stack Website</h2>
+            <div class="work-category" style="margin-bottom: 2rem;">Overview</div>
+            <p class="modal-text">A full-stack e-commerce website for a custom T-shirt printing shop. The platform
+                allows users to browse products, customize T-shirts, add items to cart, and securely place orders
+                online.</p>
+
+            <h4 class="modal-h4">Core Features</h4>
+            <ul class="modal-list">
+                <li>Product browsing and T-shirt customization</li>
+                <li>Shopping cart and checkout flow</li>
+                <li>Secure order placement</li>
+                <li>User authentication and session management</li>
+                <li>Admin dashboard for order management</li>
+            </ul>
+
+            <h4 class="modal-h4">Architecture</h4>
+            <p class="modal-text">React-based frontend with TypeScript for type safety. FastAPI backend with MySQL for
+                persistent data storage.</p>
+
+            <h4 class="modal-h4">Outcome &amp; Tech Stack</h4>
+            <p class="modal-text"><strong>Tech Stack:</strong> React, TypeScript, FastAPI, MySQL</p>
+            <p class="modal-text"><strong>Outcome:</strong> A seamless, secure shopping experience for custom T-shirt
+                orders.</p>
+        </div>
+    </div>
+
+    <!-- ===== Floating: Accent Color Customizer ===== -->
+    <div class="color-customizer" id="colorCustomizer">
+        <button class="color-toggle-btn" id="colorToggleBtn" title="Customize accent color">
+            <i class="fas fa-palette"></i>
+        </button>
+        <div class="color-palette" id="colorPalette">
+            <span class="c-label">Accent</span>
+            <button class="c-swatch active" data-color="#38bdf8" style="background:#38bdf8" title="Cyan"></button>
+            <button class="c-swatch" data-color="#818cf8" style="background:#818cf8" title="Indigo"></button>
+            <button class="c-swatch" data-color="#e879f9" style="background:#e879f9" title="Fuchsia"></button>
+            <button class="c-swatch" data-color="#10b981" style="background:#10b981" title="Emerald"></button>
+            <button class="c-swatch" data-color="#f59e0b" style="background:#f59e0b" title="Amber"></button>
+        </div>
+    </div>
+
+    <!-- ===== Floating: Recruiter Mode Toggle ===== -->
+    <button class="recruiter-mode-btn" id="recruiterModeBtn" title="Switch to Recruiter View">
+        <i class="fas fa-user-tie"></i>
+        <span>Recruiter View</span>
+    </button>
+
+    <!-- Recruiter Mode Overlay -->
+    <div class="recruiter-overlay" id="recruiterOverlay" aria-hidden="true">
+        <div class="recruiter-card">
+            <button class="recruiter-close" id="recruiterClose"><i class="fas fa-times"></i></button>
+            <div class="recruiter-avatar">A</div>
+            <h2>Aravindhan S</h2>
+            <p class="rec-role">Full Stack Developer · Automation Tester</p>
+            <div class="recruiter-pills">
+                <span>📍 Chennai, India</span>
+                <span>🟢 Available Now</span>
+                <span>🎓 B.Tech CSE, 2025</span>
+            </div>
+            <div class="recruiter-info-row">
+                <div><strong>Experience</strong>
+                    <p>L&T Internship (Feb–May 2025)</p>
+                </div>
+                <div><strong>Notice Period</strong>
+                    <p>Immediately</p>
+                </div>
+                <div><strong>Work Mode</strong>
+                    <p>Hybrid / Remote / On-site</p>
+                </div>
+            </div>
+            <div class="recruiter-skills">
+                <span class="tag">React</span><span class="tag">TypeScript</span>
+                <span class="tag">FastAPI</span><span class="tag">Spring Boot</span>
+                <span class="tag">Playwright</span><span class="tag">Docker</span>
+            </div>
+            <a href="./images/ARAVINDHAN-Resume.pdf" download class="btn glass-btn-primary"
+                style="margin-top:1.5rem;display:inline-flex;gap:.5rem;align-items:center;">
+                <i class="fas fa-download"></i> Download Resume
+            </a>
+        </div>
+    </div>
+
+    <!-- ===== Toast Notification ===== -->
+    <div class="toast-notification" id="toastNotification">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Copied!</span>
+    </div>
+
+    <!-- Configuration Script -->
+    <script src="./js/config.js"></script>
+
+    <!-- Canvas Cursor Script -->
+    <script src="./js/canvas-cursor.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="./js/script.js"></script>
+
+    <!-- Features JavaScript -->
+    <script src="./js/features.js"></script>
+</body>
+
+
+</html>

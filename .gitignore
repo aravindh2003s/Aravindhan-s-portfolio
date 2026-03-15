@@ -1,0 +1,36 @@
+# Ignore Maven build files
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Ignore IDE files
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.settings/
+.classpath
+.project
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore logs
+*.log
+
+# Ignore temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Ignore Node.js
+node_modules/
+tests/node_modules/
+package-lock.json
+
+# Ignore Playwright
+tests/test-results/
+tests/playwright-report/
+tests/playwright/.cache/

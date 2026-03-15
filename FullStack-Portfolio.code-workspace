@@ -1,0 +1,17 @@
+{
+    "folders": [
+        {
+            "path": "backend",
+            "name": "Backend (Java)"
+        },
+        {
+            "path": "frontend",
+            "name": "Frontend (React)"
+        },
+        {
+            "path": ".",
+            "name": "Root Project"
+        }
+    ],
+    "settings": {}
+}
