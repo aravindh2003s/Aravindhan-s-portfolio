@@ -1,3 +1,3 @@
 const CONFIG = {
-    API_BASE_URL: 'http://localhost:8080/api'
+    API_BASE_URL: 'https://aravindhan-s-portfolio.onrender.com/api'
 };
