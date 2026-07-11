@@ -36,9 +36,9 @@ navLinks.forEach(link => {
 
 // ==================== Typewriter Cycling Effect ====================
 const roles = [
-    'Software Engineer.',
-    'Full Stack Developer.',
-    'Automation Tester.',
+    'Java Full Stack Developer.',
+    'QA Automation Engineer.',
+    'Spring Boot Developer.',
     'Problem Solver.'
 ];
 

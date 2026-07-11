@@ -50,18 +50,18 @@ const terminalOutput = document.getElementById('terminalOutput');
 const CLI_COMMANDS = {
     help: () => `Available commands: <span class="t-hl">about</span>, <span class="t-hl">skills</span>, <span class="t-hl">contact</span>, <span class="t-hl">resume</span>, <span class="t-hl">projects</span>, <span class="t-hl">faq</span>, <span class="t-hl">clear</span>, <span class="t-hl">hello</span>`,
 
-    about: () => `<span class="t-hl">Aravindhan S</span> — Full Stack Developer &amp; Automation Tester<br>📍 Chennai, India · B.Tech CSE, 2025<br>🟢 Available immediately for new opportunities`,
+    about: () => `<span class="t-hl">Aravindhan S</span> — Java Full Stack Developer &amp; QA Automation Engineer<br>📍 Chennai, India · B.E. CSE, 2025 · CGPA: 7.4<br>🟢 Available immediately for new opportunities`,
 
-    skills: () => `Frontend: <span class="t-hl">React, TypeScript, HTML5, CSS3</span><br>Backend: <span class="t-hl">FastAPI, Spring Boot, REST APIs</span><br>Testing: <span class="t-hl">Playwright, Selenium, Cucumber BDD</span><br>Tools: <span class="t-hl">Git, Docker, CI/CD</span>`,
+    skills: () => `Languages: <span class="t-hl">Java, JavaScript, SQL</span><br>Backend: <span class="t-hl">Spring Boot, Spring MVC, REST APIs</span><br>Frontend: <span class="t-hl">HTML5, CSS3, JavaScript</span><br>QA: <span class="t-hl">Playwright, TestNG, Maven, POM</span><br>Tools: <span class="t-hl">Git, Postman, IntelliJ IDEA</span>`,
 
-    contact: () => `📧 <a class="t-link" href="mailto:aravindh2003s@gmail.com">aravindh2003s@gmail.com</a><br>📞 <a class="t-link" href="tel:+918838544167">+91 8838544167</a><br>🔗 <a class="t-link" href="https://linkedin.com/in/aravindhan1001" target="_blank">linkedin.com/in/aravindhan1001</a>`,
+    contact: () => `📧 <a class="t-link" href="mailto:aravindh2003s@gmail.com">aravindh2003s@gmail.com</a><br>📞 <a class="t-link" href="tel:+918838544167">+91 8838544167</a><br>🔗 <a class="t-link" href="https://linkedin.com/in/aravindhan-s-37254b2a2" target="_blank">linkedin.com/in/aravindhan-s-37254b2a2</a>`,
 
     resume: () => {
         window.open('./images/ARAVINDHAN-Resume.pdf');
         return `<span class="t-hl">↗ Opening resume PDF...</span>`;
     },
 
-    projects: () => `01. Full-Stack Portfolio Website — <span class="t-hl">Spring Boot, Docker</span><br>02. Employee Management System — <span class="t-hl">Spring Boot, MySQL</span><br>03. Indoor Positioning System — <span class="t-hl">FastAPI, ML, IoT</span><br>04. E-Commerce Website — <span class="t-hl">React, TypeScript, FastAPI</span>`,
+    projects: () => `01. Employee Management System — <span class="t-hl">Java, Spring Boot, MySQL</span><br>02. Playwright Automation Framework — <span class="t-hl">Java, Playwright, TestNG</span><br>03. Project Manager App — <span class="t-hl">Java, Spring Boot, MySQL</span><br>04. Expense Tracker App — <span class="t-hl">Java, Spring Boot, MySQL</span><br>05. Personal Portfolio — <span class="t-hl">HTML, CSS, JavaScript</span>`,
 
     faq: () => {
         document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
