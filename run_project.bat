@@ -7,7 +7,7 @@ echo Waiting for backend to start...
 timeout /t 10 /nobreak
 
 echo Opening the Frontend...
-cd ..\frontend
+cd ..\frontend\public
 start index.html
 
 echo Project is running!
