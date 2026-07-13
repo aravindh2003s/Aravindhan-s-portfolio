@@ -48,6 +48,7 @@ public class ContactService {
             SimpleMailMessage mailMessage = new SimpleMailMessage();
             mailMessage.setFrom(fromEmail);
             mailMessage.setTo(toEmail);
+            mailMessage.setReplyTo(message.getEmail());
             mailMessage.setSubject("New Portfolio Contact: " + message.getName());
             mailMessage.setText(
                     "You have received a new message from your portfolio website!\n\n" +
