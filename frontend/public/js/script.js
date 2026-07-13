@@ -218,9 +218,129 @@ buttons.forEach(btn => {
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     const formMessage = document.getElementById('formMessage');
+    const submitBtn = document.getElementById('formSubmitBtn');
+    const clearBtn = document.getElementById('formClearBtn');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoader = submitBtn.querySelector('.btn-loader');
+    const charCounter = document.getElementById('charCounter');
+    const messageArea = document.getElementById('message');
 
+    // --- Field hint helpers ---
+    function setHint(id, text, type) {
+        const hint = document.getElementById(id);
+        if (!hint) return;
+        hint.textContent = text;
+        hint.className = 'field-hint visible ' + type; // 'error' or 'info'
+    }
+
+    function clearHint(id) {
+        const hint = document.getElementById(id);
+        if (!hint) return;
+        hint.textContent = '';
+        hint.className = 'field-hint';
+    }
+
+    function setFieldState(el, state) {
+        el.classList.remove('field-error', 'field-valid');
+        if (state) el.classList.add(state);
+    }
+
+    // --- Client-side validation ---
+    function validateField(field) {
+        const val = field.value.trim();
+        const name = field.name;
+
+        if (name === 'name') {
+            if (!val) { setHint('nameHint', 'Name is required', 'error'); setFieldState(field, 'field-error'); return false; }
+            if (val.length < 2) { setHint('nameHint', 'At least 2 characters', 'error'); setFieldState(field, 'field-error'); return false; }
+            clearHint('nameHint'); setFieldState(field, 'field-valid'); return true;
+        }
+
+        if (name === 'email') {
+            if (!val) { setHint('emailHint', 'Email is required', 'error'); setFieldState(field, 'field-error'); return false; }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) { setHint('emailHint', 'Enter a valid email address', 'error'); setFieldState(field, 'field-error'); return false; }
+            clearHint('emailHint'); setFieldState(field, 'field-valid'); return true;
+        }
+
+        if (name === 'message') {
+            if (!val) { setHint('messageHint', 'Message is required', 'error'); setFieldState(field, 'field-error'); return false; }
+            if (val.length < 10) { setHint('messageHint', `${10 - val.length} more character${10 - val.length === 1 ? '' : 's'} needed`, 'error'); setFieldState(field, 'field-error'); return false; }
+            clearHint('messageHint'); setFieldState(field, 'field-valid'); return true;
+        }
+
+        return true;
+    }
+
+    // Real-time validation on blur
+    contactForm.querySelectorAll('input, textarea').forEach(field => {
+        field.addEventListener('blur', () => validateField(field));
+        field.addEventListener('input', () => {
+            // Clear error on typing
+            if (field.classList.contains('field-error')) validateField(field);
+        });
+    });
+
+    // --- Character counter ---
+    if (messageArea && charCounter) {
+        messageArea.addEventListener('input', () => {
+            const len = messageArea.value.length;
+            charCounter.textContent = `${len} / 1000`;
+            charCounter.classList.remove('warning', 'danger');
+            if (len >= 1000) charCounter.classList.add('danger');
+            else if (len >= 900) charCounter.classList.add('warning');
+        });
+    }
+
+    // --- Show / hide form message with animation ---
+    function showFormMessage(text, type) {
+        formMessage.textContent = text;
+        formMessage.className = 'form-message ' + type + ' show';
+    }
+
+    function hideFormMessage() {
+        formMessage.classList.remove('show');
+        setTimeout(() => {
+            formMessage.textContent = '';
+            formMessage.className = 'form-message';
+        }, 400); // match CSS transition duration
+    }
+
+    // --- Loading state helpers ---
+    function setLoading(loading) {
+        submitBtn.disabled = loading;
+        btnText.hidden = loading;
+        btnLoader.hidden = !loading;
+    }
+
+    // --- Clear / Reset button ---
+    clearBtn.addEventListener('click', () => {
+        contactForm.reset();
+        // Reset all field states and hints
+        contactForm.querySelectorAll('input, textarea').forEach(field => {
+            setFieldState(field, null);
+        });
+        clearHint('nameHint');
+        clearHint('emailHint');
+        clearHint('messageHint');
+        charCounter.textContent = '0 / 1000';
+        charCounter.classList.remove('warning', 'danger');
+        hideFormMessage();
+    });
+
+    // --- Submit handler ---
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        // Validate all fields first
+        const fields = contactForm.querySelectorAll('input, textarea');
+        let allValid = true;
+        fields.forEach(field => {
+            if (!validateField(field)) allValid = false;
+        });
+        if (!allValid) return;
+
+        // Enter loading state
+        setLoading(true);
 
         const formData = new FormData(contactForm);
         const data = {
@@ -241,25 +361,26 @@ if (contactForm) {
             const result = await response.json();
 
             if (result.success) {
-                formMessage.textContent = "Message transmitted successfully.";
-                formMessage.classList.remove('error');
-                formMessage.classList.add('success');
+                showFormMessage('✓ Message transmitted successfully!', 'success');
                 contactForm.reset();
+                // Reset field visuals
+                fields.forEach(field => setFieldState(field, null));
+                clearHint('nameHint');
+                clearHint('emailHint');
+                clearHint('messageHint');
+                charCounter.textContent = '0 / 1000';
+                charCounter.classList.remove('warning', 'danger');
             } else {
-                formMessage.textContent = result.message || "Transmission failed. Please try again.";
-                formMessage.classList.remove('success');
-                formMessage.classList.add('error');
+                showFormMessage(result.message || 'Transmission failed. Please try again.', 'error');
             }
         } catch (error) {
-            formMessage.textContent = "Connection error. Please try again.";
-            formMessage.classList.remove('success');
-            formMessage.classList.add('error');
+            showFormMessage('Connection error. Please try again.', 'error');
         }
 
-        setTimeout(() => {
-            formMessage.textContent = '';
-            formMessage.className = 'form-message';
-        }, 5000);
+        setLoading(false);
+
+        // Auto-dismiss after 6s
+        setTimeout(hideFormMessage, 6000);
     });
 }
 
