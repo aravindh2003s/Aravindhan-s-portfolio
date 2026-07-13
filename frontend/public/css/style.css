@@ -46,6 +46,10 @@
     box-sizing: border-box;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 canvas#canvas {
     position: fixed;
     top: 0;
